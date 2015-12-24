@@ -1,0 +1,26 @@
+
+defaultTasks 'clean',  'build'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+
+mainClassName = 'com.cic.test.CmstestApplication'
+
+jar {
+    baseName = 'cms-sim'
+    version = '0.0.1'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web:1.3.1.RELEASE')
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper:8.0.30')
+    compile('javax.servlet:jstl:1.2')
+}
