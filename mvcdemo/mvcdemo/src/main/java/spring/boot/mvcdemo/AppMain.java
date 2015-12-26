@@ -26,17 +26,9 @@ public class AppMain extends SpringBootServletInitializer {
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-		factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/templates/notFound.html"));
+		factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/static/html/404.html"));
+		factory.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/static/html/500.html"));
 		return factory;
 	}
-
-	// @Bean
-	// public InternalResourceViewResolver setUpViewResolver() {
-	// InternalResourceViewResolver resolver = new
-	// InternalResourceViewResolver();
-	// resolver.setPrefix("/templates/");
-	// resolver.setSuffix(".jsp");
-	// return resolver;
-	// }
 
 }
